@@ -27,14 +27,14 @@ namespace WebApplication1.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers([FromHeader] string authorization)
         {
             var users = await UserService.GetList();
             return Ok(new CoreResponse<IEnumerable<User>>
             {
                 Success = true, 
                 Result = users, 
-                Message = "User List"
+                Message = "User List" + authorization
             });
         }
 
