@@ -26,7 +26,6 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUsers([FromHeader] string authorization)
         {
             var users = await UserService.GetList();
